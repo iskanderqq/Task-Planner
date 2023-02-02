@@ -6,20 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task planner by Iskander Nureev</title>
     <link rel="stylesheet" href="css/styles.css">
+    
 </head>
 <body>
-    <article class="planner-buttons">
-        <button class="planner-buttons__button">добавить</button>
-        <button class="planner-buttons__button">удалить</button>
-    </article>
-    <main class="tasks-window">
-        <div class="tasks-window__task">
-            <p class="task__text"></p>
-            <div class="tasks-window__buttons-img">
-                <button class="buttons-img__button"></button>
-                <button class="buttons-img__button"></button>
+    <div class="wrapper">
+        <article class="planner-buttons">
+            <button class="planner-buttons__button" id="add-btn">добавить</button>
+            <button class="planner-buttons__button" id="del-btn">удалить</button>
+        </article>
+        <main class="tasks-window">
+            <div class="tasks-window__task">
+                <div class="tasks-window__task-textBox">
+                    <h3 class="task-textBox__title">Тема</h3>
+                    <p class="task-textBox__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt aperiam repellendus rerum totam corrupti amet, sequi culpa dignissimos facilis inventore tempora iure eaque eligendi expedita, magni neque maiores ipsam accusantium!</p>
+                </div>
+                <div class="tasks-window__buttons-img">
+                    <button class="buttons-img__button">
+                        <img src="img/open.png" alt="">
+                    </button>
+                    <button class="buttons-img__button">
+                        <img src="img/edit.png" alt="">
+                    </button>
+                </div>
             </div>
+            <div class="tasks-window__task">
+                <div class="tasks-window__task-textBox">
+                    <h3 class="task-textBox__title">Тема</h3>
+                    <p class="task-textBox__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt aperiam repellendus rerum totam corrupti amet, sequi culpa dignissimos facilis inventore tempora iure eaque eligendi expedita, magni neque maiores ipsam accusantium!</p>
+                </div>
+                <div class="tasks-window__buttons-img">
+                    <button class="buttons-img__button">
+                        <img src="img/open.png" alt="">
+                    </button>
+                    <button class="buttons-img__button">
+                        <img src="img/edit.png" alt="">
+                    </button>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+    <div class="popup-wrapper hidden">
+        <div class="popup-container">
+            <button class="popup-container__close">
+                <img src="img/close.png" alt="close-button" class="popup-container__close__button">
+            </button>
+            
+            <h3 class="popup-container__title">Введите задачу</h3>
+            <input type="text" class="popup-container__input">
+            <button class="popup-container__button">Добавить</button>
         </div>
-    </main>
+    </div>
+    <script src="js/index.js"></script>
 </body>
 </html>
