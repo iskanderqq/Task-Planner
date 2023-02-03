@@ -153,7 +153,24 @@ body{
     cursor: pointer;
 }
 
-
+.checkBox-button{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border:  1px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+}
+.checkBox-button__checked{
+    padding: 0;
+    margin: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: #000;
+}
 
 .hidden{
     display:none; 
