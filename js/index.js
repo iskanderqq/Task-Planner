@@ -4,14 +4,49 @@ let popCloseButton = document.querySelector(".popup-wrapper");
 let popupWrapper = document.querySelector(".popup-wrapper");
 let  tasksWindow = document.querySelector(".tasks-window");
 let popupAddButton = document.querySelector(".popup-container__button");
+let popupEditor = document.querySelector(".popup-editor__wrapper");
+let editButton = document.querySelectorAll(".taskEditor");
+let closeEditButtin = document.querySelector(".popup-editor__close");
+//open edit window
+ setInterval(()=>{
+    let taskTitle = document.querySelectorAll(".task-textBox__title");
+    let taskText = document.querySelectorAll(".task-textBox__text");
+    let textBoxTheme = document.querySelector(".popup-editor__input-taskTheme");
+    let textBoxText = document.querySelector(".popup-editor__input-taskText");
+    
+    for(let i = 0; i  < document.querySelectorAll(".taskEditor").length; i++){
+
+        document.querySelectorAll(".taskEditor")[i].onclick = ()=>{
+            document.querySelector(".popup-editor__wrapper").classList.toggle("hidden")
+            textBoxTheme.value = taskTitle[i].textContent;
+            textBoxText.value = taskText[i].textContent;
+            document.querySelector(".popup-editor__button").onclick= ()=>{
+                document.querySelector(".popup-editor__wrapper").classList.toggle("hidden")
+                taskTitle[i].textContent = textBoxTheme.value;
+                taskText[i].textContent = textBoxText.value;
+            }
+        }
+      
+    }
+  
+
+
+},1000);
+// close edit window
+closeEditButtin.addEventListener("click", ev =>{
+    document.querySelector(".popup-editor__wrapper").classList.toggle("hidden");
+});
 
 
 
+// open popup
 addButton.addEventListener('click', ev =>{
     popupWrapper.classList.toggle("hidden");
     
 });
 
+
+// delete button functions
 delButton.addEventListener('click', ev =>{
     let checkBtn = document.querySelectorAll(".checkBox-button");
     let check = document.querySelectorAll(".checkBox-button__checked");
@@ -66,18 +101,19 @@ delButton.addEventListener('click', ev =>{
     
 });
 
-
+// close popup
 popCloseButton.addEventListener('click', ev=>{
     if(ev.target.className === "popup-container__close__button"){
         popupWrapper.classList.toggle("hidden");
     }
 });
+
+// create task
 popupAddButton.addEventListener("click", ev=>{
     if(ev.target.className === "popup-container__button"){
          tasksWindow.append(createTask());
     }
 })
-
 
 
 function createTask(){
@@ -107,10 +143,12 @@ function createTask(){
     taskButtonsDiv.classList.add("tasks-window__buttons-img");    
 
     let taskButton1 = document.createElement("button")
-    taskButton1.classList.add("buttons-img__button");    
+    taskButton1.classList.add("buttons-img__button"); 
+    taskButton1.classList.add("taskOpener");       
 
     let taskButton2 = document.createElement("button")
     taskButton2.classList.add("buttons-img__button");    
+    taskButton2.classList.add("taskEditor");    
 
     let taskButtonImg1 = document.createElement("img");
     taskButtonImg1.setAttribute("src", "img/open.png")   ;

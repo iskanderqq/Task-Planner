@@ -20,11 +20,11 @@
                     <h3 class="task-textBox__title">Тема1</h3>
                     <p class="task-textBox__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt aperiam repellendus rerum totam corrupti amet, sequi culpa dignissimos facilis inventore tempora iure eaque eligendi expedita, magni neque maiores ipsam accusantium!</p>
                 </div>
-                <div class="tasks-window__buttons-img">
+                <div class="tasks-window__buttons-img taskOpener">
                     <button class="buttons-img__button">
                         <img src="img/open.png" alt="">
                     </button>
-                    <button class="buttons-img__button">
+                    <button class="buttons-img__button taskEditor">
                         <img src="img/edit.png" alt="">
                     </button>
                     <div class="checkBox-button">
@@ -38,10 +38,10 @@
                     <p class="task-textBox__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt aperiam repellendus rerum totam corrupti amet, sequi culpa dignissimos facilis inventore tempora iure eaque eligendi expedita, magni neque maiores ipsam accusantium!</p>
                 </div>
                 <div class="tasks-window__buttons-img">
-                    <button class="buttons-img__button">
+                    <button class="buttons-img__button taskOpener">
                         <img src="img/open.png" alt="">
                     </button>
-                    <button class="buttons-img__button">
+                    <button class="buttons-img__button taskEditor">
                         <img src="img/edit.png" alt="">
                     </button>
                     <div class="checkBox-button">
@@ -52,6 +52,19 @@
             
         </main>
     </div>
+    <div class="popup-editor__wrapper hidden">
+        <div class="popup-editor__container">
+            <button class="popup-editor__close">
+                <img src="img/close.png" alt="close-button" class="popup-editor__close-button">
+            </button>
+            
+            <h3 class="popup-editor__title">Отредактируйте вашу задачу</h3>
+            <input type="text" class="popup-editor__input-taskTheme">
+            <input type="text" class="popup-editor__input-taskText">
+            <button class="popup-editor__button">изменить</button>
+        </div>
+    </div>
+
     <div class="popup-wrapper hidden">
         <div class="popup-container">
             <button class="popup-container__close">
@@ -61,7 +74,7 @@
             <h3 class="popup-container__title">Введите задачу</h3>
             <input type="text" class="popup-container__input-taskTheme">
             <input type="text" class="popup-container__input-taskText">
-            <button class="popup-container__button">Добавить</button>
+            <button class="popup-container__button">добавить</button>
         </div>
     </div>
     <script src="js/index.js"></script>
