@@ -6,14 +6,18 @@ let  tasksWindow = document.querySelector(".tasks-window");
 let popupAddButton = document.querySelector(".popup-container__button");
 let popupEditor = document.querySelector(".popup-editor__wrapper");
 let editButton = document.querySelectorAll(".taskEditor");
-let closeEditButtin = document.querySelector(".popup-editor__close");
-//open edit window
+let closeEditButton = document.querySelector(".popup-editor__close"); 
+let closeViewButton = document.querySelector(".popup-view__close"); 
+
+let popupView = document.querySelector(".popup-view__wrapper");
+//open edit window and view window
  setInterval(()=>{
-    let taskTitle = document.querySelectorAll(".task-textBox__title");
-    let taskText = document.querySelectorAll(".task-textBox__text");
+   
     let textBoxTheme = document.querySelector(".popup-editor__input-taskTheme");
     let textBoxText = document.querySelector(".popup-editor__input-taskText");
-    
+    let taskTitle = document.querySelectorAll(".task-textBox__title");
+    let taskText = document.querySelectorAll(".task-textBox__text");    
+
     for(let i = 0; i  < document.querySelectorAll(".taskEditor").length; i++){
 
         document.querySelectorAll(".taskEditor")[i].onclick = ()=>{
@@ -22,10 +26,11 @@ let closeEditButtin = document.querySelector(".popup-editor__close");
             textBoxText.value = taskText[i].textContent;
             document.querySelector(".popup-editor__button").onclick= ()=>{
                 document.querySelector(".popup-editor__wrapper").classList.toggle("hidden")
-                taskTitle[i].textContent = textBoxTheme.value;
+                taskTitle[i].textContent = textBoxTheme.value;  
                 taskText[i].textContent = textBoxText.value;
             }
         }
+        
       
     }
   
@@ -33,9 +38,32 @@ let closeEditButtin = document.querySelector(".popup-editor__close");
 
 },1000);
 // close edit window
-closeEditButtin.addEventListener("click", ev =>{
+closeEditButton.addEventListener("click", ev =>{
     document.querySelector(".popup-editor__wrapper").classList.toggle("hidden");
 });
+
+
+setInterval(() => {
+    let viewTheme = document.querySelector(".popup-view__task-title");
+    let viewText = document.querySelector(".popup-view__task-text");
+    let taskTitle = document.querySelectorAll(".task-textBox__title");
+    let taskText = document.querySelectorAll(".task-textBox__text");   
+
+    for(let i = 0; i < document.querySelectorAll(".taskOpener").length; i++ ){
+         document.querySelectorAll(".taskOpener")[i].onclick= ()=>{
+            popupView.classList.toggle("hidden");
+            viewTheme.textContent = taskTitle[i].textContent;
+            viewText.textContent = taskText[i].textContent;
+         }
+    }
+
+    
+}, 1000);
+
+closeViewButton.addEventListener("click", ev =>{
+    popupView.classList.toggle("hidden");
+});
+
 
 
 
@@ -44,6 +72,13 @@ addButton.addEventListener('click', ev =>{
     popupWrapper.classList.toggle("hidden");
     
 });
+// create task
+popupAddButton.addEventListener("click", ev=>{
+    if(ev.target.className === "popup-container__button"){
+        popupWrapper.classList.toggle("hidden");
+         tasksWindow.append(createTask());
+    }
+})
 
 
 // delete button functions
@@ -77,7 +112,6 @@ delButton.addEventListener('click', ev =>{
     
     delButton.onclick = ()=>{
             check.forEach(el =>{
-                console.log(el )
                 if (el.dataset.ischecked == 1) {
                     let par = el.parentElement
                     for(let i = 0; i < 2; i++){
@@ -89,6 +123,7 @@ delButton.addEventListener('click', ev =>{
 
             delButton.dataset.isPushed = 0;
             checkBtn.forEach(el =>{
+                
                 el.style.display = "none";
                 
             })
@@ -108,12 +143,7 @@ popCloseButton.addEventListener('click', ev=>{
     }
 });
 
-// create task
-popupAddButton.addEventListener("click", ev=>{
-    if(ev.target.className === "popup-container__button"){
-         tasksWindow.append(createTask());
-    }
-})
+
 
 
 function createTask(){
@@ -177,6 +207,6 @@ function createTask(){
 
     task.append(taskTextBox);
     task.append(taskButtonsDiv);
-
+    task.style.animation = "ani 1s ease"
     return  task
 };

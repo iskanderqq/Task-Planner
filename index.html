@@ -20,8 +20,8 @@
                     <h3 class="task-textBox__title">Тема1</h3>
                     <p class="task-textBox__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt aperiam repellendus rerum totam corrupti amet, sequi culpa dignissimos facilis inventore tempora iure eaque eligendi expedita, magni neque maiores ipsam accusantium!</p>
                 </div>
-                <div class="tasks-window__buttons-img taskOpener">
-                    <button class="buttons-img__button">
+                <div class="tasks-window__buttons-img ">
+                    <button class="buttons-img__button taskOpener">
                         <img src="img/open.png" alt="">
                     </button>
                     <button class="buttons-img__button taskEditor">
@@ -52,6 +52,22 @@
             
         </main>
     </div>
+
+    <div class="popup-view__wrapper hidden">
+        <div class="popup-view__container">
+            <button class="popup-view__close">
+                <img src="img/close.png" alt="close-button" class="popup-view__close-button">
+            </button>
+            
+            <h3 class="popup-view__title">Задача</h3>
+
+            <h3 class="popup-view__task-title"></h3>
+            <p class="popup-view__task-text"></p>
+
+        </div>
+    </div>
+
+
     <div class="popup-editor__wrapper hidden">
         <div class="popup-editor__container">
             <button class="popup-editor__close">
